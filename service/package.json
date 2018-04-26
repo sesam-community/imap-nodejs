@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "imap": "^0.8.19",
+    "morgan": "^1.8.1",
+    "xoauth2": "^1.2.0"
+  }
+}
