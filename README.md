@@ -1,5 +1,5 @@
 # imap-adapter
-A NodeJS micro service template for reading a subset of IMAP envelopes as a JSON entity stream to a Sesam service instance or any other client.
+A NodeJS micro service template for reading of IMAP envelopes as a JSON entity stream to a Sesam service instance or any other client.
 
 ```
 $ cd service && npm install && npm run start
@@ -17,22 +17,49 @@ The service listens on port 5000. JSON entities can be retrieved from 'curl -v  
 $ curl -s 'http://localhost:5000/xoauth2/...' | jq .
 [
   {
-    "_id": "<0.0.4B.76F.1D3DD30CC772E50.0@e3uspmta192.emarsys.net>",
+    "_id": "<1a48ed6cf9e0e3979e1345725b94cf81@async.twshared2206.07.lla2.facebook.com>",
     "_updated": "66498:3",
-    "in-reply-to": "<2099627186973827-1902653223337892@groups.facebook.com>",
-    "date": "2018-04-26T07:32:58.000Z",
-    "sender_hosts": [
-      "reply-seller.ebay.com"
-    ]
+    "envelope": {
+      "date": "2018-04-26T07:58:13.000Z",
+      "subject": "See Ivar Lyngner's message and other notifications you've missed",
+      "from": [
+        {
+          "name": "Facebook",
+          "mailbox": "notification+zj4y0f0t40zy",
+          "host": "facebookmail.com"
+        }
+      ],
+      "sender": [
+        {
+          "name": "Facebook",
+          "mailbox": "notification+zj4y0f0t40zy",
+          "host": "facebookmail.com"
+        }
+      ],
+      "replyTo": [
+        {
+          "name": "noreply",
+          "mailbox": "noreply",
+          "host": "facebookmail.com"
+        }
+      ],
+      "to": [
+        {
+          "name": "Baard Johansen",
+          "mailbox": "baard",
+          "host": "rehn.no"
+        }
+      ],
+      "cc": null,
+      "bcc": null,
+      "inReplyTo": null,
+      "messageId": "<1a48ed6cf9e0e3979e1345725b94cf81@async.twshared2206.07.lla2.facebook.com>"
+    }
   },
   {
     "_id": "<1a48ed6cf9e0e3979e1345725b94cf81@async.twshared2206.07.lla2.facebook.com>",
     "_updated": "66499:3",
-    "in-reply-to": null,
-    "date": "2018-04-26T07:58:13.000Z",
-    "sender_hosts": [
-      "facebookmail.com"
-    ]
+    [..]
   }
 ]
 ```
@@ -43,11 +70,7 @@ $ curl -s 'http://localhost:5000/xoauth2/...?since=66498:3' | jq .
   {
     "_id": "<1a48ed6cf9e0e3979e1345725b94cf81@async.twshared2206.07.lla2.facebook.com>",
     "_updated": "66499:3",
-    "in-reply-to": null,
-    "date": "2018-04-26T07:58:13.000Z",
-    "sender_hosts": [
-      "facebookmail.com"
-    ]
+    [..]
   }
 ]
 ```

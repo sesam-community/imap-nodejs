@@ -81,9 +81,7 @@ app.get("/xoauth2/:host/:user", function (request, response) {
             var envelope = attrs.envelope;
             entity['_id'] = envelope.messageId;
             entity['_updated'] = seqno + ':' + box.uidvalidity;
-            entity['in-reply-to'] = envelope.inReplyTo;
-            entity['date'] = envelope.date;
-            entity['sender_hosts'] = envelope.sender.map(function (s) { return s.host; });
+            entity['envelope'] = envelope;
           });
           msg.once('end', function() {
             if (counter === 0){
